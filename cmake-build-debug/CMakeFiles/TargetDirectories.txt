@@ -1,0 +1,3 @@
+D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir
+D:/music_streamer/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/music_streamer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
