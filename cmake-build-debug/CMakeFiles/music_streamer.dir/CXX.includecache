@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/music_streamer/ArtistNode.cpp
+ArtistNode.h
+D:/music_streamer/ArtistNode.h
+
+D:/music_streamer/ArtistNode.h
+
+D:/music_streamer/AvlTree.h
+ArtistNode.h
+D:/music_streamer/ArtistNode.h
+
+D:/music_streamer/avlTree_test.cpp
+iostream
+-
+AvlTree.h
+D:/music_streamer/AvlTree.h
+ArtistNode.cpp
+D:/music_streamer/ArtistNode.cpp
+

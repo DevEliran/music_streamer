@@ -1,62 +1,64 @@
 #ifndef MUSIC_STREAMER_AVLTREE_H
 #define MUSIC_STREAMER_AVLTREE_H
 
+#include "ArtistNode.h"
 /* AVL node*/
-template <class T>
-class AVL_node{
-public:
-    int key;
-    T data;
-    int balance;
-    AVL_node *left, *right, *parent;
-
-    AVL_node(T t, AVL_node *p):key((ArtistNode*)t->artist_id), data(t), balance(0),
-                                         parent(p), left(NULL),right(NULL){}
-    ~AVL_node(){
-        delete  left
-        delete right
-    }
-};
-
+//template <class T>
+//class T{
+//public:
+//    int key;
+//    T data;
+//    int balance;
+//    T *left, *right, *parent;
+//
+//    T(T t, T *p):key(t.getArtistID()), data(t), balance(0),
+//                                         parent(p), left(NULL),right(NULL){}
+//    ~T(){
+//        delete  left;
+//        delete right;
+//    }
+//};
+//
 
 /*AVL Tree*/
 template <class T>
 class AVLTree{
 public:
+    T *root;
+
     AVLTree(void);
     ~AVLTree(void);
     bool insert(T t);
     void deleteKey(const T t);
-    void printBalance()
+    void printBalance();
+    void printInorder(T* t);
 
 private:
-    AVL_node<T> *root;
-
-    AVL_node<T>* rotate_LL (AVL_node<T> * a);
-    AVL_node<T>* rotate_RR (AVL_node<T> * a);
-    AVL_node<T>* rotate_LR (AVL_node<T> * n);
-    AVL_node<T>* rotate_RL (AVL_node<T> * n);
-    void rebalance(AVL_node<T> *n);
-    int height(AVL_node<T> *n);
-    void setBalance(AVL_node<T> *n);
-    void clearNode(AVL_node<T> *n);
+    T* rotate_LL (T * a);
+    T* rotate_RR (T * a);
+    T* rotate_LR (T * n);
+    T* rotate_RL (T * n);
+    void rebalance(T *n);
+    int height(T *n);
+    void setBalance(T *n);
+    void clearNode(T *n);
 };
 
 template <class T>
-void AVLtree<T>::rebalance(AVLnode<T> *n) {
+void AVLTree<T>::rebalance(T *n) {
     setBalance(n);
 
     if (n->balance == -2) {
         if (height(n->left->left) >= height(n->left->right))
             n = rotate_RR(n);
         else
-            n = LR(n);
+            n = rotate_LR(n);
     }
     else if (n->balance == 2) {
         if (height(n->right->right) >= height(n->right->left))
             n = rotate_LL(n);
         else
-            n = RL(n);
+            n = rotate_RL(n);
     }
 
     if (n->parent != NULL) {
@@ -69,8 +71,8 @@ void AVLtree<T>::rebalance(AVLnode<T> *n) {
 
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotate_LL(AVLnode<T> *a) {
-    AVLnode<T> *b = a->right;
+T* AVLTree<T>::rotate_LL(T *a) {
+    T *b = a->right;
     b->parent = a->parent;
     a->right = b->left;
 
@@ -96,8 +98,8 @@ AVLnode<T>* AVLtree<T>::rotate_LL(AVLnode<T> *a) {
 
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotate_RR(AVLnode<T> *a) {
-    AVLnode<T> *b = a->left;
+T* AVLTree<T>::rotate_RR(T *a) {
+    T *b = a->left;
     b->parent = a->parent;
     a->left = b->right;
 
@@ -123,21 +125,21 @@ AVLnode<T>* AVLtree<T>::rotate_RR(AVLnode<T> *a) {
 
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotate_LR(AVLnode<T> *n) {
-    n->left = rotateLeft(n->left);
-    return rotateRight(n);
+T* AVLTree<T>::rotate_LR(T *n) {
+    n->left = rotate_LL(n->left);
+    return rotate_RR(n);
 }
 
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotate_RL(AVLnode<T> *n) {
-    n->right = rotateRight(n->right);
-    return rotateLeft(n);
+T* AVLTree<T>::rotate_RL(T *n) {
+    n->right = rotate_RR(n->right);
+    return rotate_LL(n);
 }
 
 
 template <class T>
-int AVLtree<T>::height(AVLnode<T> *n) {
+int AVLTree<T>::height(T *n) {
     if (n == NULL)
         return -1;
     return 1 + std::max(height(n->left), height(n->right));
@@ -145,46 +147,46 @@ int AVLtree<T>::height(AVLnode<T> *n) {
 
 
 template <class T>
-void AVLtree<T>::setBalance(AVLnode<T> *n) {
+void AVLTree<T>::setBalance(T *n) {
     n->balance = height(n->right) - height(n->left);
 }
 
 
 template <class T>
-AVLtree<T>::AVLTree(void) : root(NULL) {}
+AVLTree<T>::AVLTree(void) : root(NULL) {}
 
 
 template <class T>
-AVLtree<T>::~AVLTree(void) {
+AVLTree<T>::~AVLTree(void) {
     delete root;
 }
 
 
 template <class T>
-bool AVLtree<T>::insert(T key) {
+bool AVLTree<T>::insert(T t) {
     if (root == NULL) {
-        root = new AVLnode<T>(key, NULL);
+        root = new T(t);
     }
     else {
-        AVLnode<T>
+        T
                 *n = root,
                 *parent;
 
         while (true) {
-            if (n->key == key)
+            if (n->artistID == t.artistID)
                 return false;
 
             parent = n;
 
-            bool goLeft = n->key > key;
+            bool goLeft = n->artistID > t.artistID;
             n = goLeft ? n->left : n->right;
 
             if (n == NULL) {
                 if (goLeft) {
-                    parent->left = new AVLnode<T>(key, parent);
+                    parent->left = new T(t, parent);
                 }
                 else {
-                    parent->right = new AVLnode<T>(key, parent);
+                    parent->right = new T(t, parent);
                 }
 
                 rebalance(parent);
@@ -198,11 +200,11 @@ bool AVLtree<T>::insert(T key) {
 
 
 template <class T>
-void AVLtree<T>::deleteKey(const T delKey) {
+void AVLTree<T>::deleteKey(const T delKey) {
     if (root == NULL)
         return;
 
-    AVLnode<T>
+    T
             *n       = root,
             *parent  = root,
             *delNode = NULL,
@@ -211,17 +213,17 @@ void AVLtree<T>::deleteKey(const T delKey) {
     while (child != NULL) {
         parent = n;
         n = child;
-        child = delKey >= n->key ? n->right : n->left;
-        if (delKey == n->key)
+        child = delKey >= n->artistID ? n->right : n->left;
+        if (delKey == n->artistID)
             delNode = n;
     }
 
     if (delNode != NULL) {
-        delNode->key = n->key;
+        delNode->artistID = n->artistID;
 
         child = n->left != NULL ? n->left : n->right;
 
-        if (root->key == delKey) {
+        if (root->artistID == delKey) {
             root = child;
         }
         else {
@@ -235,5 +237,15 @@ void AVLtree<T>::deleteKey(const T delKey) {
             rebalance(parent);
         }
     }
+}
+
+template <class T>
+void AVLTree<T>::printInorder(T* t)
+{
+    if (t == NULL)
+        return;
+    printInorder(t->left);
+    std::cout << t->artistID << " ";
+    printInorder(t->right);
 }
 #endif //MUSIC_STREAMER_AVLTREE_H

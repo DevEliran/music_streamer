@@ -1,11 +1,13 @@
 #include "ArtistNode.h"
 
-ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), numOfSongs(numOfSongs){
-    songArr = malloc(*songArr);
-    pointerArr = malloc(*pointerArr);
+ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), numOfSongs(numOfSongs),
+                                                left(nullptr), right(nullptr),
+                                                parent(nullptr), balance(0){
+    songArr = new int[numOfSongs];
+    pointerArr = new int[numOfSongs];
     for(int i =0; i < numOfSongs; i++){
         songArr[i] = 0;
-        pointerArr[i] = NULL;
+        pointerArr[i] = 0;
     }
 }
 
@@ -32,6 +34,27 @@ int ArtistNode::getSongArrByIndex(int i){
     return songArr[i];
 }
 
-int* ArtistNode::getPointerArrByIndex(int i){
+int ArtistNode::getPointerArrByIndex(int i){
     return pointerArr[i];
+}
+
+ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),numOfSongs(a.numOfSongs),
+    left(a.left), right(a.right), parent(a.parent), balance(a.balance){
+    songArr = new int[numOfSongs];
+    pointerArr = new int[numOfSongs];
+    for (int i = 0; i<numOfSongs;i++){
+        songArr[i] = a.songArr[i];
+        pointerArr[i] = a.pointerArr[i];
+    }
+}
+
+ArtistNode::ArtistNode(const ArtistNode& t, ArtistNode* p) :artistID(t.artistID),
+                                    numOfSongs(t.numOfSongs), balance(t.balance),
+                                   parent(p), left(NULL),right(NULL){
+    songArr = new int[numOfSongs];
+    pointerArr = new int[numOfSongs];
+    for (int i = 0; i<numOfSongs;i++){
+        songArr[i] = t.songArr[i];
+        pointerArr[i] = t.pointerArr[i];
+    }
 }

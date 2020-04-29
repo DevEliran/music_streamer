@@ -56,27 +56,27 @@ include CMakeFiles/music_streamer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/music_streamer.dir/flags.make
 
-CMakeFiles/music_streamer.dir/main.cpp.obj: CMakeFiles/music_streamer.dir/flags.make
-CMakeFiles/music_streamer.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/music_streamer.dir/main.cpp.obj"
-	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\music_streamer.dir\main.cpp.obj -c D:\music_streamer\main.cpp
+CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj: CMakeFiles/music_streamer.dir/flags.make
+CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj: ../avlTree_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\music_streamer.dir\avlTree_test.cpp.obj -c D:\music_streamer\avlTree_test.cpp
 
-CMakeFiles/music_streamer.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/music_streamer.dir/main.cpp.i"
-	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\music_streamer\main.cpp > CMakeFiles\music_streamer.dir\main.cpp.i
+CMakeFiles/music_streamer.dir/avlTree_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/music_streamer.dir/avlTree_test.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\music_streamer\avlTree_test.cpp > CMakeFiles\music_streamer.dir\avlTree_test.cpp.i
 
-CMakeFiles/music_streamer.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/music_streamer.dir/main.cpp.s"
-	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\music_streamer\main.cpp -o CMakeFiles\music_streamer.dir\main.cpp.s
+CMakeFiles/music_streamer.dir/avlTree_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/music_streamer.dir/avlTree_test.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\music_streamer\avlTree_test.cpp -o CMakeFiles\music_streamer.dir\avlTree_test.cpp.s
 
 # Object files for target music_streamer
 music_streamer_OBJECTS = \
-"CMakeFiles/music_streamer.dir/main.cpp.obj"
+"CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
 
 # External object files for target music_streamer
 music_streamer_EXTERNAL_OBJECTS =
 
-music_streamer.exe: CMakeFiles/music_streamer.dir/main.cpp.obj
+music_streamer.exe: CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj
 music_streamer.exe: CMakeFiles/music_streamer.dir/build.make
 music_streamer.exe: CMakeFiles/music_streamer.dir/linklibs.rsp
 music_streamer.exe: CMakeFiles/music_streamer.dir/objects1.rsp

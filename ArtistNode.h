@@ -3,7 +3,18 @@
 
 class ArtistNode{
 public:
+    int artistID;
+    int numOfSongs;
+    ArtistNode *left, *right, *parent;
+    int balance;
+    int* songArr;
+    int* pointerArr;
+
     ArtistNode(int id, int numOfSongs);
+
+    ArtistNode(const ArtistNode& t, ArtistNode* p);
+
+    ArtistNode(const ArtistNode& a);
 
     int ArtistCompare(ArtistNode a, ArtistNode b);
 
@@ -13,13 +24,7 @@ public:
 
     int getSongArrByIndex(int i);
 
-    int* getPointerArrByIndex(int i);
-
-private:
-    int songArr[];
-    int *pointerArr[];
-    int artistID;
-    int numOfSongs;
+    int getPointerArrByIndex(int i);
 };
 
 #endif //MUSIC_STREAMER_ARTISTNODE_H

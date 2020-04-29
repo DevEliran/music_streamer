@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/music_streamer/main.cpp">
+		<Unit filename="D:/music_streamer/avlTree_test.cpp">
 			<Option target="music_streamer"/>
 		</Unit>
 		<Unit filename="D:/music_streamer/CMakeLists.txt">

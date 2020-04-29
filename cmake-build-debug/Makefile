@@ -122,32 +122,32 @@ music_streamer/fast:
 	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/build
 .PHONY : music_streamer/fast
 
-main.obj: main.cpp.obj
+avlTree_test.obj: avlTree_test.cpp.obj
 
-.PHONY : main.obj
+.PHONY : avlTree_test.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+avlTree_test.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj
+.PHONY : avlTree_test.cpp.obj
 
-main.i: main.cpp.i
+avlTree_test.i: avlTree_test.cpp.i
 
-.PHONY : main.i
+.PHONY : avlTree_test.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.i
-.PHONY : main.cpp.i
+avlTree_test.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.i
+.PHONY : avlTree_test.cpp.i
 
-main.s: main.cpp.s
+avlTree_test.s: avlTree_test.cpp.s
 
-.PHONY : main.s
+.PHONY : avlTree_test.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.s
-.PHONY : main.cpp.s
+avlTree_test.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.s
+.PHONY : avlTree_test.cpp.s
 
 # Help Target
 help:
@@ -158,9 +158,9 @@ help:
 	@echo ... music_streamer
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... avlTree_test.obj
+	@echo ... avlTree_test.i
+	@echo ... avlTree_test.s
 .PHONY : help
 
 
