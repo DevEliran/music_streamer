@@ -49,8 +49,8 @@ ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),numOfSongs(a.nu
 }
 
 ArtistNode::ArtistNode(const ArtistNode& t, ArtistNode* p) :artistID(t.artistID),
-                                    numOfSongs(t.numOfSongs), balance(t.balance),
-                                   parent(p), left(NULL),right(NULL){
+                                    numOfSongs(t.numOfSongs), left(nullptr),
+                                    right(nullptr), parent(p), balance(t.balance){
     songArr = new int[numOfSongs];
     pointerArr = new int[numOfSongs];
     for (int i = 0; i<numOfSongs;i++){

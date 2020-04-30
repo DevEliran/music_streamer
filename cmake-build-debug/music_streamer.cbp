@@ -80,6 +80,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/music_streamer/ArtistNode.cpp">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/ArtistNode.h">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/AvlTree.h">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/DoublyLL.h">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/SongCountNode.cpp">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/SongCountNode.h">
+			<Option target="music_streamer"/>
+		</Unit>
 		<Unit filename="D:/music_streamer/avlTree_test.cpp">
 			<Option target="music_streamer"/>
 		</Unit>

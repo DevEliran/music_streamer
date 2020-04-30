@@ -1,24 +1,8 @@
 #ifndef MUSIC_STREAMER_AVLTREE_H
 #define MUSIC_STREAMER_AVLTREE_H
 
+#include <iostream>
 #include "ArtistNode.h"
-/* AVL node*/
-//template <class T>
-//class T{
-//public:
-//    int key;
-//    T data;
-//    int balance;
-//    T *left, *right, *parent;
-//
-//    T(T t, T *p):key(t.getArtistID()), data(t), balance(0),
-//                                         parent(p), left(NULL),right(NULL){}
-//    ~T(){
-//        delete  left;
-//        delete right;
-//    }
-//};
-//
 
 /*AVL Tree*/
 template <class T>
@@ -61,7 +45,7 @@ void AVLTree<T>::rebalance(T *n) {
             n = rotate_RL(n);
     }
 
-    if (n->parent != NULL) {
+    if (n->parent != nullptr) {
         rebalance(n->parent);
     }
     else {
@@ -76,13 +60,13 @@ T* AVLTree<T>::rotate_LL(T *a) {
     b->parent = a->parent;
     a->right = b->left;
 
-    if (a->right != NULL)
+    if (a->right != nullptr)
         a->right->parent = a;
 
     b->left = a;
     a->parent = b;
 
-    if (b->parent != NULL) {
+    if (b->parent != nullptr) {
         if (b->parent->right == a) {
             b->parent->right = b;
         }
@@ -103,13 +87,13 @@ T* AVLTree<T>::rotate_RR(T *a) {
     b->parent = a->parent;
     a->left = b->right;
 
-    if (a->left != NULL)
+    if (a->left != nullptr)
         a->left->parent = a;
 
     b->right = a;
     a->parent = b;
 
-    if (b->parent != NULL) {
+    if (b->parent != nullptr) {
         if (b->parent->right == a) {
             b->parent->right = b;
         }
@@ -140,7 +124,7 @@ T* AVLTree<T>::rotate_RL(T *n) {
 
 template <class T>
 int AVLTree<T>::height(T *n) {
-    if (n == NULL)
+    if (n == nullptr)
         return -1;
     return 1 + std::max(height(n->left), height(n->right));
 }
@@ -153,7 +137,7 @@ void AVLTree<T>::setBalance(T *n) {
 
 
 template <class T>
-AVLTree<T>::AVLTree(void) : root(NULL) {}
+AVLTree<T>::AVLTree(void) : root(nullptr) {}
 
 
 template <class T>
@@ -164,7 +148,7 @@ AVLTree<T>::~AVLTree(void) {
 
 template <class T>
 bool AVLTree<T>::insert(T t) {
-    if (root == NULL) {
+    if (root == nullptr) {
         root = new T(t);
     }
     else {
@@ -181,7 +165,7 @@ bool AVLTree<T>::insert(T t) {
             bool goLeft = n->artistID > t.artistID;
             n = goLeft ? n->left : n->right;
 
-            if (n == NULL) {
+            if (n == nullptr) {
                 if (goLeft) {
                     parent->left = new T(t, parent);
                 }
@@ -201,16 +185,16 @@ bool AVLTree<T>::insert(T t) {
 
 template <class T>
 void AVLTree<T>::deleteKey(const T delKey) {
-    if (root == NULL)
+    if (root == nullptr)
         return;
 
     T
             *n       = root,
             *parent  = root,
-            *delNode = NULL,
+            *delNode = nullptr,
             *child   = root;
 
-    while (child != NULL) {
+    while (child != nullptr) {
         parent = n;
         n = child;
         child = delKey >= n->artistID ? n->right : n->left;
@@ -218,10 +202,10 @@ void AVLTree<T>::deleteKey(const T delKey) {
             delNode = n;
     }
 
-    if (delNode != NULL) {
+    if (delNode != nullptr) {
         delNode->artistID = n->artistID;
 
-        child = n->left != NULL ? n->left : n->right;
+        child = n->left != nullptr ? n->left : n->right;
 
         if (root->artistID == delKey) {
             root = child;
@@ -242,7 +226,7 @@ void AVLTree<T>::deleteKey(const T delKey) {
 template <class T>
 void AVLTree<T>::printInorder(T* t)
 {
-    if (t == NULL)
+    if (t == nullptr)
         return;
     printInorder(t->left);
     std::cout << t->artistID << " ";

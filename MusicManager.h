@@ -1,12 +1,23 @@
 #ifndef MUSIC_STREAMER_MUSICMANAGER_H
 #define MUSIC_STREAMER_MUSICMANAGER_H
+
+#include "DoublyLL.h"
+#include "ArtistNode.h"
+#include "AvlTree.h"
+#include "SongCountNode.h"
+#include "library1.h"
+
+
 class MusicManager(){
 public:
     MusicManager();
-    AddDataCenter(int artistID, int numOfSongs);
-    RemoveDataCenter(int artistId);
-    IncrementSong(int artistID, int songID);
-    GetSongPopularity(int artistID, int songID, int* streams);
-    GetBestSongs(int numOfSongs, int* artists, int* songs);
+    StatusType AddDataCenter(int artistID, int numOfSongs);
+    StatusType RemoveDataCenter(int artistId);
+    StatusType IncrementSong(int artistID, int songID);
+    StatusType GetSongPopularity(int artistID, int songID, int* streams);
+    StatusType GetBestSongs(int numOfSongs, int* artists, int* songs);
+private:
+    AVLTree<ArtistNode>* tree;
+    DoublyLL<SongCountNode>;
 }
 #endif //MUSIC_STREAMER_MUSICMANAGER_H

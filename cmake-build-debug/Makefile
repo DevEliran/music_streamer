@@ -122,6 +122,60 @@ music_streamer/fast:
 	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/build
 .PHONY : music_streamer/fast
 
+ArtistNode.obj: ArtistNode.cpp.obj
+
+.PHONY : ArtistNode.obj
+
+# target to build an object file
+ArtistNode.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj
+.PHONY : ArtistNode.cpp.obj
+
+ArtistNode.i: ArtistNode.cpp.i
+
+.PHONY : ArtistNode.i
+
+# target to preprocess a source file
+ArtistNode.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/ArtistNode.cpp.i
+.PHONY : ArtistNode.cpp.i
+
+ArtistNode.s: ArtistNode.cpp.s
+
+.PHONY : ArtistNode.s
+
+# target to generate assembly for a file
+ArtistNode.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/ArtistNode.cpp.s
+.PHONY : ArtistNode.cpp.s
+
+SongCountNode.obj: SongCountNode.cpp.obj
+
+.PHONY : SongCountNode.obj
+
+# target to build an object file
+SongCountNode.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj
+.PHONY : SongCountNode.cpp.obj
+
+SongCountNode.i: SongCountNode.cpp.i
+
+.PHONY : SongCountNode.i
+
+# target to preprocess a source file
+SongCountNode.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongCountNode.cpp.i
+.PHONY : SongCountNode.cpp.i
+
+SongCountNode.s: SongCountNode.cpp.s
+
+.PHONY : SongCountNode.s
+
+# target to generate assembly for a file
+SongCountNode.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongCountNode.cpp.s
+.PHONY : SongCountNode.cpp.s
+
 avlTree_test.obj: avlTree_test.cpp.obj
 
 .PHONY : avlTree_test.obj
@@ -158,6 +212,12 @@ help:
 	@echo ... music_streamer
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... ArtistNode.obj
+	@echo ... ArtistNode.i
+	@echo ... ArtistNode.s
+	@echo ... SongCountNode.obj
+	@echo ... SongCountNode.i
+	@echo ... SongCountNode.s
 	@echo ... avlTree_test.obj
 	@echo ... avlTree_test.i
 	@echo ... avlTree_test.s

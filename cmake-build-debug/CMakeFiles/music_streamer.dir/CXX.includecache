@@ -6,21 +6,35 @@
 
 #IncludeRegexTransform: 
 
-D:/music_streamer/ArtistNode.cpp
-ArtistNode.h
-D:/music_streamer/ArtistNode.h
-
 D:/music_streamer/ArtistNode.h
 
 D:/music_streamer/AvlTree.h
+iostream
+-
 ArtistNode.h
 D:/music_streamer/ArtistNode.h
+
+D:/music_streamer/DoublyLL.h
+SongCountNode.h
+D:/music_streamer/SongCountNode.h
+
+D:/music_streamer/SongCountNode.h
+AvlTree.h
+D:/music_streamer/AvlTree.h
+string
+-
+sstream
+-
 
 D:/music_streamer/avlTree_test.cpp
 iostream
 -
 AvlTree.h
 D:/music_streamer/AvlTree.h
-ArtistNode.cpp
-D:/music_streamer/ArtistNode.cpp
+ArtistNode.h
+D:/music_streamer/ArtistNode.h
+DoublyLL.h
+D:/music_streamer/DoublyLL.h
+SongCountNode.h
+D:/music_streamer/SongCountNode.h
 

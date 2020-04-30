@@ -56,9 +56,35 @@ include CMakeFiles/music_streamer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/music_streamer.dir/flags.make
 
+CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: CMakeFiles/music_streamer.dir/flags.make
+CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: ../SongCountNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\music_streamer.dir\SongCountNode.cpp.obj -c D:\music_streamer\SongCountNode.cpp
+
+CMakeFiles/music_streamer.dir/SongCountNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/music_streamer.dir/SongCountNode.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\music_streamer\SongCountNode.cpp > CMakeFiles\music_streamer.dir\SongCountNode.cpp.i
+
+CMakeFiles/music_streamer.dir/SongCountNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/music_streamer.dir/SongCountNode.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\music_streamer\SongCountNode.cpp -o CMakeFiles\music_streamer.dir\SongCountNode.cpp.s
+
+CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj: CMakeFiles/music_streamer.dir/flags.make
+CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj: ../ArtistNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\music_streamer.dir\ArtistNode.cpp.obj -c D:\music_streamer\ArtistNode.cpp
+
+CMakeFiles/music_streamer.dir/ArtistNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/music_streamer.dir/ArtistNode.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\music_streamer\ArtistNode.cpp > CMakeFiles\music_streamer.dir\ArtistNode.cpp.i
+
+CMakeFiles/music_streamer.dir/ArtistNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/music_streamer.dir/ArtistNode.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\music_streamer\ArtistNode.cpp -o CMakeFiles\music_streamer.dir\ArtistNode.cpp.s
+
 CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj: CMakeFiles/music_streamer.dir/flags.make
 CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj: ../avlTree_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
 	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\music_streamer.dir\avlTree_test.cpp.obj -c D:\music_streamer\avlTree_test.cpp
 
 CMakeFiles/music_streamer.dir/avlTree_test.cpp.i: cmake_force
@@ -71,17 +97,21 @@ CMakeFiles/music_streamer.dir/avlTree_test.cpp.s: cmake_force
 
 # Object files for target music_streamer
 music_streamer_OBJECTS = \
+"CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj" \
+"CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj" \
 "CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
 
 # External object files for target music_streamer
 music_streamer_EXTERNAL_OBJECTS =
 
+music_streamer.exe: CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj
+music_streamer.exe: CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj
 music_streamer.exe: CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj
 music_streamer.exe: CMakeFiles/music_streamer.dir/build.make
 music_streamer.exe: CMakeFiles/music_streamer.dir/linklibs.rsp
 music_streamer.exe: CMakeFiles/music_streamer.dir/objects1.rsp
 music_streamer.exe: CMakeFiles/music_streamer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable music_streamer.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\music_streamer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable music_streamer.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\music_streamer.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
