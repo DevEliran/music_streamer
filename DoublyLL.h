@@ -31,6 +31,8 @@ template <class T>
 DoublyLL<T>::DoublyLL() {
     this->head = nullptr;
     this->tail = nullptr;
+    SongCountNode* a = new SongCountNode(0);
+    this->push(a);
     this->list_size = 1;
 }
 

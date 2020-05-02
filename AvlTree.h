@@ -13,9 +13,10 @@ public:
     AVLTree(void);
     ~AVLTree(void);
     bool insert(T t);
-    void deleteKey(const T t);
+    bool deleteKey(const T t);
     void printBalance();
     void printInorder(T* t);
+    T* searchNode(int value, T* t);
 
 private:
     T* rotate_LL (T * a);
@@ -134,7 +135,7 @@ template <class T>
 void AVLTree<T>::setBalance(T *n) {
     n->balance = height(n->right) - height(n->left);
 }
-
+;
 
 template <class T>
 AVLTree<T>::AVLTree(void) : root(nullptr) {}
@@ -184,9 +185,9 @@ bool AVLTree<T>::insert(T t) {
 
 
 template <class T>
-void AVLTree<T>::deleteKey(const T delKey) {
+bool AVLTree<T>::deleteKey(const T delKey) {
     if (root == nullptr)
-        return;
+        return false;
 
     T
             *n       = root,
@@ -209,6 +210,7 @@ void AVLTree<T>::deleteKey(const T delKey) {
 
         if (root->artistID == delKey) {
             root = child;
+            return true;
         }
         else {
             if (parent->left == n) {
@@ -220,7 +222,9 @@ void AVLTree<T>::deleteKey(const T delKey) {
 
             rebalance(parent);
         }
+        return true;
     }
+    return false;
 }
 
 template <class T>
@@ -231,5 +235,20 @@ void AVLTree<T>::printInorder(T* t)
     printInorder(t->left);
     std::cout << t->artistID << " ";
     printInorder(t->right);
+}
+
+
+template <class T>
+T* AVLTree<T>::searchNode(int value, T* t){
+    if(t == nullptr || t->artistID == value){
+        return t;
+    }
+    if (value < t.artistID){
+        return searchNode(value, t->left);
+    }
+    if (value > t.artistID){
+        return searchNode(value, t->right);
+    }
+
 }
 #endif //MUSIC_STREAMER_AVLTREE_H

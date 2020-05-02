@@ -28,11 +28,11 @@ typedef enum {
     NONE_CMD = -2,
     COMMENT_CMD = -1,
     INIT_CMD = 0,
-	ADDARTIST_CMD = 1,
-	REMOVEARTIST_CMD = 2,
-	ADDTOSONGCOUNT_CMD = 3,
-	NUMBEROFSTREAMS_CMD = 4,
-	GETRECOMMENDEDSONGS_CMD = 5,
+    ADDARTIST_CMD = 1,
+    REMOVEARTIST_CMD = 2,
+    ADDTOSONGCOUNT_CMD = 3,
+    NUMBEROFSTREAMS_CMD = 4,
+    GETRECOMMENDEDSONGS_CMD = 5,
     QUIT_CMD = 6
 } commandType;
 
@@ -138,7 +138,7 @@ static errorType parser(const char* const command) {
     errorType rtn_val = error;
 
     commandType command_val = CheckCommand(command, &command_args);
-	
+
     switch (command_val) {
 
         case (INIT_CMD):
@@ -212,7 +212,7 @@ static errorType OnAddArtist(void* DS, const char* const command) {
 static errorType OnRemoveArtist(void* DS, const char* const command) {
     int artistID;
     ValidateRead(sscanf(command, "%d", &artistID), 1, "%s failed.\n", commandStr[REMOVEARTIST_CMD]);
-	StatusType res = RemoveArtist(DS, artistID);
+    StatusType res = RemoveArtist(DS, artistID);
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[REMOVEARTIST_CMD], ReturnValToStr(res));
@@ -238,7 +238,7 @@ static errorType OnAddToSongCount(void* DS, const char* const command) {
 }
 
 static errorType OnNumberOfStreams(void* DS, const char* const command) {
-	int artistID, songID, streams;
+    int artistID, songID, streams;
     ValidateRead(sscanf(command, "%d %d", &artistID, &songID), 2, "%s failed.\n", commandStr[NUMBEROFSTREAMS_CMD]);
     StatusType res = NumberOfStreams(DS, artistID, songID, &streams);
 
@@ -255,17 +255,17 @@ static errorType OnGetRecommendedSongs(void* DS, const char* const command) {
     int numOfSongs;
     int *artists, *songs;
 
-	artists = (int *)malloc(numOfSongs * sizeof(int));
-	songs = (int *)malloc(numOfSongs * sizeof(int));
-
     ValidateRead(sscanf(command, "%d", &numOfSongs), 1, "%s failed.\n", commandStr[GETRECOMMENDEDSONGS_CMD]);
-	StatusType res;
-	if (artists != NULL && songs != NULL) {
-		res = GetRecommendedSongs(DS, numOfSongs, artists, songs);
-	}
-	else {
-		res = ALLOCATION_ERROR;
-	}
+    artists = (int *)malloc(numOfSongs * sizeof(int));
+    songs = (int *)malloc(numOfSongs * sizeof(int));
+
+    StatusType res;
+    if (artists != NULL && songs != NULL) {
+        res = GetRecommendedSongs(DS, numOfSongs, artists, songs);
+    }
+    else {
+        res = ALLOCATION_ERROR;
+    }
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[GETRECOMMENDEDSONGS_CMD], ReturnValToStr(res));
@@ -274,7 +274,7 @@ static errorType OnGetRecommendedSongs(void* DS, const char* const command) {
 
     printf("%s: %s\n", commandStr[GETRECOMMENDEDSONGS_CMD], ReturnValToStr(res));
 
-	printf("Artist\t|\tSong\n");
+    printf("Artist\t|\tSong\n");
 
     for (int i = 0; i < numOfSongs; i++)
     {
@@ -283,8 +283,8 @@ static errorType OnGetRecommendedSongs(void* DS, const char* const command) {
 
     printf("--End of recommended songs--\n");
 
-	if (artists != NULL) free(artists);
-	if (songs != NULL) free(songs);
+    if (artists != NULL) free(artists);
+    if (songs != NULL) free(songs);
 
     return error_free;
 }

@@ -18,7 +18,7 @@ int main() {
     Tree->printInorder(Tree->root);
 
     DoublyLL<SongCountNode>* list =  new DoublyLL<SongCountNode>;
-    SongCountNode *d1 = new SongCountNode(0);
+//    SongCountNode *d1 = new SongCountNode(0);
     SongCountNode *e = new SongCountNode(1);
     SongCountNode *f = new SongCountNode(2);
     SongCountNode *h = new SongCountNode(-1);
