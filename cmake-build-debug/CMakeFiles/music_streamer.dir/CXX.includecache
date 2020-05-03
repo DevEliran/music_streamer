@@ -16,18 +16,6 @@ D:/music_streamer/DoublyLL.h
 SongCountNode.h
 D:/music_streamer/SongCountNode.h
 
-D:/music_streamer/MusicManager.cpp
-MusicManager.h
-D:/music_streamer/MusicManager.h
-SongNode.h
-D:/music_streamer/SongNode.h
-AvlTree.h
-D:/music_streamer/AvlTree.h
-DoublyLL.h
-D:/music_streamer/DoublyLL.h
-SongCountNode.h
-D:/music_streamer/SongCountNode.h
-
 D:/music_streamer/MusicManager.h
 DoublyLL.h
 D:/music_streamer/DoublyLL.h

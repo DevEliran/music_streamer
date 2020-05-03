@@ -134,4 +134,6 @@ StatusType MusicManager::GetBestSongs(int numOfSongs, int* artists, int* songs){
 void MusicManager::Quit(){
     delete tree;
     delete countList;
+    tree = nullptr;
+    countList = nullptr;
 }
