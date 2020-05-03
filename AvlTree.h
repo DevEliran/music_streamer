@@ -2,15 +2,18 @@
 #define MUSIC_STREAMER_AVLTREE_H
 
 #include <iostream>
-#include "ArtistNode.h"
 
 /*AVL Tree*/
 template <class T>
 class AVLTree{
 public:
     T *root;
+    int key;
+    AVLTree *left, *right, *parent;
+    int balance;
 
     AVLTree(void);
+    AVLTree(const AVLTree<T>& t, AVLTree<T>* p);
     ~AVLTree(void);
     bool insert(T *t);
     bool deleteKey(const T t);
@@ -138,8 +141,16 @@ void AVLTree<T>::setBalance(T *n) {
 ;
 
 template <class T>
-AVLTree<T>::AVLTree(void) : root(nullptr) {}
+AVLTree<T>::AVLTree(void) : root(nullptr), key(0),
+                left(nullptr), right(nullptr), parent(nullptr),
+                balance(0){}
 
+
+template <class T>
+AVLTree<T>::AVLTree(const AVLTree<T> &t, AVLTree<T> *p):root(t.root),
+                        key(t.key), left(t.left),
+                        right(t.right), parent(p),
+                        balance(t.balance){}
 
 template <class T>
 AVLTree<T>::~AVLTree(void) {
@@ -158,12 +169,12 @@ bool AVLTree<T>::insert(T *t) {
                 *parent;
 
         while (true) {
-            if (n->artistID == t->artistID)
+            if (n->key == t->key)
                 return false;
 
             parent = n;
 
-            bool goLeft = n->artistID > t->artistID;
+            bool goLeft = n->key > t->key;
             n = goLeft ? n->left : n->right;
 
             if (n == nullptr) {
@@ -198,17 +209,17 @@ bool AVLTree<T>::deleteKey(const T delKey) {
     while (child != nullptr) {
         parent = n;
         n = child;
-        child = delKey >= n->artistID ? n->right : n->left;
-        if (delKey == n->artistID)
+        child = delKey.key >= n->key ? n->right : n->left;
+        if (delKey.key == n->key)
             delNode = n;
     }
 
     if (delNode != nullptr) {
-        delNode->artistID = n->artistID;
+        delNode->key = n->key;
 
         child = n->left != nullptr ? n->left : n->right;
 
-        if (root->artistID == delKey) {
+        if (root->key == delKey.key) {
             root = child;
             return true;
         }
@@ -233,22 +244,22 @@ void AVLTree<T>::printInorder(T* t)
     if (t == nullptr)
         return;
     printInorder(t->left);
-    std::cout << t->artistID << " ";
+    std::cout << t->key << " ";
     printInorder(t->right);
 }
 
 
 template <class T>
 T* AVLTree<T>::searchNode(int value, T* t){
-    if(t == nullptr || t->artistID == value){
+    if(t == nullptr || t->key == value){
         return t;
     }
-    if (value < t.artistID){
+    if (value < t->key){
         return searchNode(value, t->left);
     }
-    if (value > t.artistID){
+    if (value > t->key){
         return searchNode(value, t->right);
     }
-
+    return nullptr;
 }
 #endif //MUSIC_STREAMER_AVLTREE_H

@@ -15,5 +15,7 @@ add_executable(music_streamer
         library1.cpp
         MusicManager.cpp
         MusicManager.h
+        SongNode.cpp
+        SongNode.h
 #                avlTree_test.cpp
         )

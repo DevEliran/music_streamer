@@ -11,8 +11,6 @@ D:/music_streamer/ArtistNode.h
 D:/music_streamer/AvlTree.h
 iostream
 -
-ArtistNode.h
-D:/music_streamer/ArtistNode.h
 
 D:/music_streamer/DoublyLL.h
 SongCountNode.h
@@ -21,6 +19,14 @@ D:/music_streamer/SongCountNode.h
 D:/music_streamer/MusicManager.cpp
 MusicManager.h
 D:/music_streamer/MusicManager.h
+SongNode.h
+D:/music_streamer/SongNode.h
+AvlTree.h
+D:/music_streamer/AvlTree.h
+DoublyLL.h
+D:/music_streamer/DoublyLL.h
+SongCountNode.h
+D:/music_streamer/SongCountNode.h
 
 D:/music_streamer/MusicManager.h
 DoublyLL.h
@@ -34,21 +40,17 @@ D:/music_streamer/SongCountNode.h
 library1.h
 D:/music_streamer/library1.h
 
-D:/music_streamer/SongCountNode.cpp
-SongCountNode.h
 D:/music_streamer/SongCountNode.h
+AvlTree.h
+D:/music_streamer/AvlTree.h
+SongNode.h
+D:/music_streamer/SongNode.h
 string
 -
 sstream
 -
 
-D:/music_streamer/SongCountNode.h
-AvlTree.h
-D:/music_streamer/AvlTree.h
-string
--
-sstream
--
+D:/music_streamer/SongNode.h
 
 D:/music_streamer/library1.cpp
 library1.h

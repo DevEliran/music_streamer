@@ -1,6 +1,6 @@
 #include "ArtistNode.h"
 
-ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), numOfSongs(numOfSongs),
+ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), key(artistID), numOfSongs(numOfSongs),
                                                 left(nullptr), right(nullptr),
                                                 parent(nullptr), balance(0){
     songArr = new int[numOfSongs];
@@ -38,7 +38,7 @@ int ArtistNode::getPointerArrByIndex(int i){
     return pointerArr[i];
 }
 
-ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),numOfSongs(a.numOfSongs),
+ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),key(artistID), numOfSongs(a.numOfSongs),
     left(a.left), right(a.right), parent(a.parent), balance(a.balance){
     songArr = new int[numOfSongs];
     pointerArr = new int[numOfSongs];
@@ -49,7 +49,7 @@ ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),numOfSongs(a.nu
 }
 
 ArtistNode::ArtistNode(const ArtistNode& t, ArtistNode* p) :artistID(t.artistID),
-                                    numOfSongs(t.numOfSongs), left(nullptr),
+                                    key(artistID), numOfSongs(t.numOfSongs), left(nullptr),
                                     right(nullptr), parent(p), balance(t.balance){
     songArr = new int[numOfSongs];
     pointerArr = new int[numOfSongs];

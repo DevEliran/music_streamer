@@ -17,8 +17,8 @@ public:
     StatusType GetSongPopularity(int artistID, int songID, int* streams);
     StatusType GetBestSongs(int numOfSongs, int* artists, int* songs);
     void Quit();
-private:
-    static int total_songs;
+
+    int total_songs;
     AVLTree<ArtistNode>* tree;
     DoublyLL<SongCountNode>* countList;
 };

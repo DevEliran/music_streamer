@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/music_streamer/ArtistNode.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj"
   "D:/music_streamer/MusicManager.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/MusicManager.cpp.obj"
   "D:/music_streamer/SongCountNode.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj"
+  "D:/music_streamer/SongNode.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/SongNode.cpp.obj"
   "D:/music_streamer/library1.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/library1.cpp.obj"
   "D:/music_streamer/main.cpp" "D:/music_streamer/cmake-build-debug/CMakeFiles/music_streamer.dir/main.cpp.obj"
   )

@@ -203,6 +203,33 @@ SongCountNode.cpp.s:
 	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongCountNode.cpp.s
 .PHONY : SongCountNode.cpp.s
 
+SongNode.obj: SongNode.cpp.obj
+
+.PHONY : SongNode.obj
+
+# target to build an object file
+SongNode.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongNode.cpp.obj
+.PHONY : SongNode.cpp.obj
+
+SongNode.i: SongNode.cpp.i
+
+.PHONY : SongNode.i
+
+# target to preprocess a source file
+SongNode.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongNode.cpp.i
+.PHONY : SongNode.cpp.i
+
+SongNode.s: SongNode.cpp.s
+
+.PHONY : SongNode.s
+
+# target to generate assembly for a file
+SongNode.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongNode.cpp.s
+.PHONY : SongNode.cpp.s
+
 library1.obj: library1.cpp.obj
 
 .PHONY : library1.obj
@@ -275,6 +302,9 @@ help:
 	@echo ... SongCountNode.obj
 	@echo ... SongCountNode.i
 	@echo ... SongCountNode.s
+	@echo ... SongNode.obj
+	@echo ... SongNode.i
+	@echo ... SongNode.s
 	@echo ... library1.obj
 	@echo ... library1.i
 	@echo ... library1.s

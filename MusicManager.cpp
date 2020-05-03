@@ -1,4 +1,9 @@
 #include "MusicManager.h"
+#include "SongNode.h"
+#include "AvlTree.h"
+#include "DoublyLL.h"
+#include "SongCountNode.h"
+
 
 MusicManager::MusicManager():tree(new(std::nothrow) AVLTree<ArtistNode>),
                             countList(new(std::nothrow) DoublyLL<SongCountNode>){}
@@ -22,18 +27,18 @@ StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
 
     SongCountNode* head = countList->getHead();
 
-    head->ptr = new(std::nothrow) AVLTree<AVLTree<int>>;
+    head->ptr = new(std::nothrow) AVLTree<AVLTree<SongNode>>;
     if (!head->ptr){
         return ALLOCATION_ERROR;
     }
 
-    AVLTree<int> *songsTree = new(std::nothrow) AVLTree<int>;
+    AVLTree<SongNode> *songsTree = new(std::nothrow) AVLTree<SongNode>;
     if(!songsTree){
         return ALLOCATION_ERROR;
     }
 
     for (int i = 0; i < numOfSongs; i++){
-        songsTree->insert(&i);
+        songsTree->insert(new SongNode(i));
     }
 
     head->ptr->insert(songsTree);

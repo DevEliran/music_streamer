@@ -4,6 +4,7 @@
 class ArtistNode{
 public:
     int artistID;
+    int key;
     int numOfSongs;
     ArtistNode *left, *right, *parent;
     int balance;
