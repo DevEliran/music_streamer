@@ -12,7 +12,7 @@ public:
 
     AVLTree(void);
     ~AVLTree(void);
-    bool insert(T t);
+    bool insert(T *t);
     bool deleteKey(const T t);
     void printBalance();
     void printInorder(T* t);
@@ -148,9 +148,9 @@ AVLTree<T>::~AVLTree(void) {
 
 
 template <class T>
-bool AVLTree<T>::insert(T t) {
+bool AVLTree<T>::insert(T *t) {
     if (root == nullptr) {
-        root = new T(t);
+        root = new T(*t);
     }
     else {
         T
@@ -158,20 +158,20 @@ bool AVLTree<T>::insert(T t) {
                 *parent;
 
         while (true) {
-            if (n->artistID == t.artistID)
+            if (n->artistID == t->artistID)
                 return false;
 
             parent = n;
 
-            bool goLeft = n->artistID > t.artistID;
+            bool goLeft = n->artistID > t->artistID;
             n = goLeft ? n->left : n->right;
 
             if (n == nullptr) {
                 if (goLeft) {
-                    parent->left = new T(t, parent);
+                    parent->left = new T(*t, parent);
                 }
                 else {
-                    parent->right = new T(t, parent);
+                    parent->right = new T(*t, parent);
                 }
 
                 rebalance(parent);

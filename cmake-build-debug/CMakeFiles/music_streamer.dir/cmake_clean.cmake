@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj"
+  "CMakeFiles/music_streamer.dir/MusicManager.cpp.obj"
   "CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj"
-  "CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj"
+  "CMakeFiles/music_streamer.dir/library1.cpp.obj"
+  "CMakeFiles/music_streamer.dir/main.cpp.obj"
   "libmusic_streamer.dll.a"
   "music_streamer.exe"
   "music_streamer.exe.manifest"

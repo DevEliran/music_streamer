@@ -8,7 +8,7 @@
 #include "library1.h"
 
 
-class MusicManager(){
+class MusicManager{
 public:
     MusicManager();
     StatusType AddDataCenter(int artistID, int numOfSongs);
@@ -20,6 +20,6 @@ public:
 private:
     static int total_songs;
     AVLTree<ArtistNode>* tree;
-    DoublyLL<SongCountNode> countList;
-}
+    DoublyLL<SongCountNode>* countList;
+};
 #endif //MUSIC_STREAMER_MUSICMANAGER_H

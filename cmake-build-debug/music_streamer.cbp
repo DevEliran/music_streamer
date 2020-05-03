@@ -92,13 +92,25 @@
 		<Unit filename="D:/music_streamer/DoublyLL.h">
 			<Option target="music_streamer"/>
 		</Unit>
+		<Unit filename="D:/music_streamer/MusicManager.cpp">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/MusicManager.h">
+			<Option target="music_streamer"/>
+		</Unit>
 		<Unit filename="D:/music_streamer/SongCountNode.cpp">
 			<Option target="music_streamer"/>
 		</Unit>
 		<Unit filename="D:/music_streamer/SongCountNode.h">
 			<Option target="music_streamer"/>
 		</Unit>
-		<Unit filename="D:/music_streamer/avlTree_test.cpp">
+		<Unit filename="D:/music_streamer/library1.cpp">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/library1.h">
+			<Option target="music_streamer"/>
+		</Unit>
+		<Unit filename="D:/music_streamer/main.cpp">
 			<Option target="music_streamer"/>
 		</Unit>
 		<Unit filename="D:/music_streamer/CMakeLists.txt">

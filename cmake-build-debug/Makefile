@@ -149,6 +149,33 @@ ArtistNode.cpp.s:
 	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/ArtistNode.cpp.s
 .PHONY : ArtistNode.cpp.s
 
+MusicManager.obj: MusicManager.cpp.obj
+
+.PHONY : MusicManager.obj
+
+# target to build an object file
+MusicManager.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/MusicManager.cpp.obj
+.PHONY : MusicManager.cpp.obj
+
+MusicManager.i: MusicManager.cpp.i
+
+.PHONY : MusicManager.i
+
+# target to preprocess a source file
+MusicManager.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/MusicManager.cpp.i
+.PHONY : MusicManager.cpp.i
+
+MusicManager.s: MusicManager.cpp.s
+
+.PHONY : MusicManager.s
+
+# target to generate assembly for a file
+MusicManager.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/MusicManager.cpp.s
+.PHONY : MusicManager.cpp.s
+
 SongCountNode.obj: SongCountNode.cpp.obj
 
 .PHONY : SongCountNode.obj
@@ -176,32 +203,59 @@ SongCountNode.cpp.s:
 	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/SongCountNode.cpp.s
 .PHONY : SongCountNode.cpp.s
 
-avlTree_test.obj: avlTree_test.cpp.obj
+library1.obj: library1.cpp.obj
 
-.PHONY : avlTree_test.obj
+.PHONY : library1.obj
 
 # target to build an object file
-avlTree_test.cpp.obj:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj
-.PHONY : avlTree_test.cpp.obj
+library1.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/library1.cpp.obj
+.PHONY : library1.cpp.obj
 
-avlTree_test.i: avlTree_test.cpp.i
+library1.i: library1.cpp.i
 
-.PHONY : avlTree_test.i
+.PHONY : library1.i
 
 # target to preprocess a source file
-avlTree_test.cpp.i:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.i
-.PHONY : avlTree_test.cpp.i
+library1.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/library1.cpp.i
+.PHONY : library1.cpp.i
 
-avlTree_test.s: avlTree_test.cpp.s
+library1.s: library1.cpp.s
 
-.PHONY : avlTree_test.s
+.PHONY : library1.s
 
 # target to generate assembly for a file
-avlTree_test.cpp.s:
-	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/avlTree_test.cpp.s
-.PHONY : avlTree_test.cpp.s
+library1.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/library1.cpp.s
+.PHONY : library1.cpp.s
+
+main.obj: main.cpp.obj
+
+.PHONY : main.obj
+
+# target to build an object file
+main.cpp.obj:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.obj
+.PHONY : main.cpp.obj
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles\music_streamer.dir\build.make CMakeFiles/music_streamer.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -215,12 +269,18 @@ help:
 	@echo ... ArtistNode.obj
 	@echo ... ArtistNode.i
 	@echo ... ArtistNode.s
+	@echo ... MusicManager.obj
+	@echo ... MusicManager.i
+	@echo ... MusicManager.s
 	@echo ... SongCountNode.obj
 	@echo ... SongCountNode.i
 	@echo ... SongCountNode.s
-	@echo ... avlTree_test.obj
-	@echo ... avlTree_test.i
-	@echo ... avlTree_test.s
+	@echo ... library1.obj
+	@echo ... library1.i
+	@echo ... library1.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

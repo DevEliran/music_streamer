@@ -26,6 +26,6 @@ StatusType GetRecommendedSongs(void *DS, int numOfSongs, int *artists, int *song
     return ((MusicManager *)DS)->GetBestSongs(numOfSongs, artists, songs);
 }
 
-StatusType Quit(void **DS){
-    (MusicManager*)DS->Quit();
+void Quit(void **DS){
+    ((MusicManager*)DS)->Quit();
 }

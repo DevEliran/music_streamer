@@ -4,14 +4,27 @@
 CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj
  D:/music_streamer/ArtistNode.cpp
  D:/music_streamer/ArtistNode.h
+CMakeFiles/music_streamer.dir/MusicManager.cpp.obj
+ D:/music_streamer/ArtistNode.h
+ D:/music_streamer/AvlTree.h
+ D:/music_streamer/DoublyLL.h
+ D:/music_streamer/MusicManager.cpp
+ D:/music_streamer/MusicManager.h
+ D:/music_streamer/SongCountNode.h
+ D:/music_streamer/library1.h
 CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj
  D:/music_streamer/ArtistNode.h
  D:/music_streamer/AvlTree.h
  D:/music_streamer/SongCountNode.cpp
  D:/music_streamer/SongCountNode.h
-CMakeFiles/music_streamer.dir/avlTree_test.cpp.obj
+CMakeFiles/music_streamer.dir/library1.cpp.obj
  D:/music_streamer/ArtistNode.h
  D:/music_streamer/AvlTree.h
  D:/music_streamer/DoublyLL.h
+ D:/music_streamer/MusicManager.h
  D:/music_streamer/SongCountNode.h
- D:/music_streamer/avlTree_test.cpp
+ D:/music_streamer/library1.cpp
+ D:/music_streamer/library1.h
+CMakeFiles/music_streamer.dir/main.cpp.obj
+ D:/music_streamer/library1.h
+ D:/music_streamer/main.cpp
