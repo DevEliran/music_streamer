@@ -1,6 +1,8 @@
 #ifndef MUSIC_STREAMER_ARTISTNODE_H
 #define MUSIC_STREAMER_ARTISTNODE_H
 
+#include "SongNode.h"
+
 class ArtistNode{
 public:
     int artistID;
@@ -9,7 +11,7 @@ public:
     ArtistNode *left, *right, *parent;
     int balance;
     int* songArr;
-    int* pointerArr;
+    SongNode** pointerArr;
 
     ArtistNode(int id, int numOfSongs);
 
@@ -25,7 +27,7 @@ public:
 
     int getSongArrByIndex(int i);
 
-    int getPointerArrByIndex(int i);
+    SongNode* getPointerArrByIndex(int i);
 };
 
 #endif //MUSIC_STREAMER_ARTISTNODE_H

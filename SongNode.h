@@ -8,6 +8,7 @@ public:
     SongNode *left, *right, *parent;
     int balance;
 
+    SongNode() = default;
     SongNode(int key);
     SongNode(const SongNode& t, SongNode* p);
     void UpdatePtr(int *ptr);

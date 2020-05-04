@@ -15,7 +15,7 @@ public:
     AVLTree(void);
     AVLTree(const AVLTree<T>& t, AVLTree<T>* p);
     ~AVLTree(void);
-    bool insert(T *t);
+    T* insert(T *t);
     bool deleteKey(const T t);
     void printBalance();
     void printInorder(T* t);
@@ -159,7 +159,7 @@ AVLTree<T>::~AVLTree(void) {
 
 
 template <class T>
-bool AVLTree<T>::insert(T *t) {
+T* AVLTree<T>::insert(T *t) {
     if (root == nullptr) {
         root = new T(*t);
     }
@@ -170,7 +170,7 @@ bool AVLTree<T>::insert(T *t) {
 
         while (true) {
             if (n->key == t->key)
-                return false;
+                return nullptr;
 
             parent = n;
 
@@ -191,7 +191,7 @@ bool AVLTree<T>::insert(T *t) {
         }
     }
 
-    return true;
+    return t;
 }
 
 

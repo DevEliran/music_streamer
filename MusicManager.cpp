@@ -6,7 +6,9 @@
 
 
 MusicManager::MusicManager():tree(new(std::nothrow) AVLTree<ArtistNode>),
-                            countList(new(std::nothrow) DoublyLL<SongCountNode>){}
+                            countList(new(std::nothrow) DoublyLL<SongCountNode>),
+                             total_songs(0){}
+
 
 
 StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
@@ -20,8 +22,8 @@ StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
         return ALLOCATION_ERROR;
     }
 
-    bool res = tree->insert(artist);
-    if (res == false){
+    ArtistNode* res = tree->insert(artist);
+    if (!res){
         return FAILURE;
     }
 
@@ -38,7 +40,12 @@ StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
     }
 
     for (int i = 0; i < numOfSongs; i++){
-        songsTree->insert(new SongNode(i));
+        SongNode* n = new(std::nothrow) SongNode(i);
+        if (!n){
+            return ALLOCATION_ERROR;
+        }
+        songsTree->insert(n);
+        res->pointerArr[i] = n;
     }
 
     head->ptr->insert(songsTree);
@@ -52,18 +59,18 @@ StatusType MusicManager::RemoveDataCenter(int artistID){
     if (artistID <= 0){
         return INVALID_INPUT;
     }
-
-    ArtistNode* toDelete = new(std::nothrow) ArtistNode(artistID, 1);
+    ArtistNode* toDelete = tree->searchNode(artistID, this->tree->root);
     if (!toDelete){
         return ALLOCATION_ERROR;
     }
-
+    for (int i = 0; i<toDelete->numOfSongs; i++){
+        delete toDelete->pointerArr[i];
+    }
     bool res = tree->deleteKey(*toDelete);
     if (!res){
         return FAILURE;
     }
 
-    //remove from countList as well, implement a pointer from the array in AVLTree to the proper node in the avltree inside the list.
     total_songs -= toDelete->numOfSongs;
     return SUCCESS;
 }

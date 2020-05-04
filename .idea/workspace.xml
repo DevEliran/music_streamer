@@ -13,13 +13,20 @@
   <component name="ChangeListManager">
     <list default="true" id="d03cb440-539d-42af-88b4-423ca9ffbfe7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtistNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArtistNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtistNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/ArtistNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvlTree.h" beforeDir="false" afterPath="$PROJECT_DIR$/AvlTree.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MusicManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SongNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/SongNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/MusicManager.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/MusicManager.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongNode.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongNode.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/library1.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/library1.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/music_streamer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/music_streamer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587828293929</updated>
-      <workItem from="1587828295188" duration="45764000" />
+      <workItem from="1587828295188" duration="53417000" />
     </task>
     <servers />
   </component>
@@ -106,6 +113,7 @@
       <configuration name="CMakeRunConfiguration">
         <watch expression="this" />
         <watch expression="new_node" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>

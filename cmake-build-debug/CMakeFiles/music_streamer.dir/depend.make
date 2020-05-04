@@ -3,6 +3,7 @@
 
 CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj: ../ArtistNode.cpp
 CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj: ../ArtistNode.h
+CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj: ../SongNode.h
 
 CMakeFiles/music_streamer.dir/MusicManager.cpp.obj: ../ArtistNode.h
 CMakeFiles/music_streamer.dir/MusicManager.cpp.obj: ../AvlTree.h
