@@ -24,11 +24,11 @@ public:
     T* get(int index);
     void printList();
     void printListBackwards();
-    ~DoublyLL();
+    ~DoublyLL(void);
 };
 
 template <class T>
-DoublyLL<T>::DoublyLL() {
+DoublyLL<T>::DoublyLL(void) {
     this->head = nullptr;
     this->tail = nullptr;
     SongCountNode* a = new SongCountNode(0);

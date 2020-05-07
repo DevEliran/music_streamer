@@ -7,9 +7,10 @@ public:
     int* song_ptr;
     SongNode *left, *right, *parent;
     int balance;
+    int artistID;
 
     SongNode() = default;
-    SongNode(int key);
+    SongNode(int key, int artistID);
     SongNode(const SongNode& t, SongNode* p);
     void UpdatePtr(int *ptr);
     ~SongNode();

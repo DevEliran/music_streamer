@@ -2,7 +2,7 @@
 #define MUSIC_STREAMER_AVLTREE_H
 
 #include <iostream>
-
+#include "SongNode.h"
 /*AVL Tree*/
 template <class T>
 class AVLTree{
@@ -11,15 +11,21 @@ public:
     int key;
     AVLTree *left, *right, *parent;
     int balance;
+    T *minNode;
+    int numOfNodes;
 
     AVLTree(void);
     AVLTree(const AVLTree<T>& t, AVLTree<T>* p);
     ~AVLTree(void);
-    T* insert(T *t);
-    bool deleteKey(const T t);
+    bool insert(int key, int numOfSongs);
+    bool insertSongTree(int numOfSongs, int artistID);
+    bool deleteKey(int t);
     void printBalance();
     void printInorder(T* t);
     T* searchNode(int value, T* t);
+    void scanInorder(T* t, int* artists, int* songs, int iter);
+    void scanOuterTree(AVLTree<AVLTree<SongNode>>* t, int* artists, int *songs);
+    void deleteTree(T* node);
 
 private:
     T* rotate_LL (T * a);
@@ -143,25 +149,39 @@ void AVLTree<T>::setBalance(T *n) {
 template <class T>
 AVLTree<T>::AVLTree(void) : root(nullptr), key(0),
                 left(nullptr), right(nullptr), parent(nullptr),
-                balance(0){}
+                balance(0), minNode(nullptr), numOfNodes(0){}
 
 
 template <class T>
 AVLTree<T>::AVLTree(const AVLTree<T> &t, AVLTree<T> *p):root(t.root),
                         key(t.key), left(t.left),
                         right(t.right), parent(p),
-                        balance(t.balance){}
+                        balance(t.balance), minNode(t.minNode),
+                        numOfNodes(t.numOfNodes){}
 
 template <class T>
 AVLTree<T>::~AVLTree(void) {
-    delete root;
+    deleteTree(root);
 }
 
 
 template <class T>
-T* AVLTree<T>::insert(T *t) {
+void AVLTree<T>::deleteTree(T *node) {
+    if (node == nullptr){
+        return;
+    }
+    deleteTree(node->left);
+    deleteTree(node->right);
+    delete node;
+}
+
+
+template <class T>
+bool AVLTree<T>::insert(int key, int numOfSongs) {
     if (root == nullptr) {
-        root = new T(*t);
+        root = new T(key, numOfSongs);
+        minNode = root;
+        return true;
     }
     else {
         T
@@ -169,34 +189,36 @@ T* AVLTree<T>::insert(T *t) {
                 *parent;
 
         while (true) {
-            if (n->key == t->key)
-                return nullptr;
+            if (n->key == key)
+                return false;
 
             parent = n;
 
-            bool goLeft = n->key > t->key;
+            bool goLeft = n->key > key;
             n = goLeft ? n->left : n->right;
 
             if (n == nullptr) {
                 if (goLeft) {
-                    parent->left = new T(*t, parent);
+                    parent->left = new T(key, numOfSongs);
+                    minNode = parent->left;
+                    numOfNodes++;
+                    rebalance(parent);
+                    return true;
                 }
                 else {
-                    parent->right = new T(*t, parent);
+                    parent->right = new T(key, numOfSongs);
+                    numOfNodes++;
+                    rebalance(parent);
+                    return true;
                 }
-
-                rebalance(parent);
-                break;
             }
         }
     }
-
-    return t;
 }
 
 
 template <class T>
-bool AVLTree<T>::deleteKey(const T delKey) {
+bool AVLTree<T>::deleteKey(int delKey) {
     if (root == nullptr)
         return false;
 
@@ -209,18 +231,21 @@ bool AVLTree<T>::deleteKey(const T delKey) {
     while (child != nullptr) {
         parent = n;
         n = child;
-        child = delKey.key >= n->key ? n->right : n->left;
-        if (delKey.key == n->key)
+        child = delKey >= n->key ? n->right : n->left;
+        if (delKey == n->key)
             delNode = n;
     }
-
+    if (delNode == minNode){
+        minNode = delNode->parent;
+    }
     if (delNode != nullptr) {
         delNode->key = n->key;
 
         child = n->left != nullptr ? n->left : n->right;
 
-        if (root->key == delKey.key) {
+        if (root->key == delKey) {
             root = child;
+            delete delNode;
             return true;
         }
         else {
@@ -233,6 +258,8 @@ bool AVLTree<T>::deleteKey(const T delKey) {
 
             rebalance(parent);
         }
+        numOfNodes--;
+        delete delNode;
         return true;
     }
     return false;
@@ -248,6 +275,27 @@ void AVLTree<T>::printInorder(T* t)
     printInorder(t->right);
 }
 
+template <class T>
+void AVLTree<T>::scanOuterTree(AVLTree<AVLTree<SongNode>>* t, int* artists, int *songs){
+    if (t == nullptr){
+        return;
+    }
+    scanOuterTree(t->left, artists, songs);
+    scanInorder(t->minNode, artists, songs, 0);
+    scanOuterTree(t->right, artists, songs);
+}
+
+template <class T>
+void AVLTree<T>::scanInorder(T* t, int* artists, int* songs, int iter)
+{
+    if(t == nullptr){
+        return;
+    }
+    scanInorder(t->left, artists, songs, iter + 1);
+    artists[iter] = t->root->artistID;
+    songs[iter] = t->key;
+    scanInorder(t->right, artists, songs, iter + 1);
+}
 
 template <class T>
 T* AVLTree<T>::searchNode(int value, T* t){
@@ -261,5 +309,55 @@ T* AVLTree<T>::searchNode(int value, T* t){
         return searchNode(value, t->right);
     }
     return nullptr;
+}
+
+
+template <class T>
+bool AVLTree<T>::insertSongTree(int numOfSongs, int artistID) {
+    if (root == nullptr) {
+        root = new T;
+        minNode = root;
+        for(int i = 0; i < numOfSongs; i++){
+            root->insert(i, artistID);
+        }
+        return true;
+    }
+    else {
+        T
+                *n = root,
+                *parent;
+
+        while (true) {
+            if (n->key == key)
+                return false;
+
+            parent = n;
+
+            bool goLeft = n->key > key;
+            n = goLeft ? n->left : n->right;
+
+            if (n == nullptr) {
+                if (goLeft) {
+                    parent->left = new T;
+                    for(int i = 0; i < numOfSongs; i++){
+                        parent->left->insert(i, artistID);
+                    }
+                    minNode = parent->left;
+                    numOfNodes++;
+                    rebalance(parent);
+                    return true;
+                }
+                else {
+                    parent->right = new T;
+                    for(int i = 0; i < numOfSongs; i++){
+                        parent->right->insert(i, artistID);
+                    }
+                    numOfNodes++;
+                    rebalance(parent);
+                    return true;
+                }
+            }
+        }
+    }
 }
 #endif //MUSIC_STREAMER_AVLTREE_H

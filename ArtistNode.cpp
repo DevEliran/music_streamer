@@ -8,7 +8,6 @@ ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), key(artistID), numO
     for(int i =0; i < numOfSongs; i++){
         songArr[i] = 0;
         pointerArr[i] = nullptr;
-        //pointerArr is not initalized for some reason after performing this function
     }
 }
 
@@ -23,8 +22,8 @@ int ArtistNode::ArtistCompare(ArtistNode a, ArtistNode b){
 }
 
 ArtistNode::~ArtistNode(){
-    delete [] songArr;
-    delete [] pointerArr;
+    delete[] songArr;
+    delete[] pointerArr;
 }
 
 int ArtistNode::getArtistID(){

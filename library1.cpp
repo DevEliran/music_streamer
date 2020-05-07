@@ -27,7 +27,7 @@ StatusType GetRecommendedSongs(void *DS, int numOfSongs, int *artists, int *song
 }
 
 void Quit(void **DS){
-    ((MusicManager*)DS)->Quit();
+//    ((MusicManager*)DS)->Quit();
     delete static_cast<MusicManager*>(*DS);
     *DS = nullptr;
 }

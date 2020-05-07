@@ -5,9 +5,12 @@
 #include "SongCountNode.h"
 
 
-MusicManager::MusicManager():tree(new(std::nothrow) AVLTree<ArtistNode>),
-                            countList(new(std::nothrow) DoublyLL<SongCountNode>),
-                             total_songs(0){}
+MusicManager::MusicManager():tree(nullptr),
+                            countList(nullptr),
+                             total_songs(0){
+    tree = new(std::nothrow) AVLTree<ArtistNode>;
+    countList = new(std::nothrow) DoublyLL<SongCountNode>;
+}
 
 
 
@@ -17,39 +20,13 @@ StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
         return INVALID_INPUT;
     }
 
-    ArtistNode *artist = new(std::nothrow) ArtistNode(artistID, numOfSongs);
-    if (!artist){
-        return ALLOCATION_ERROR;
-    }
-
-    ArtistNode* res = tree->insert(artist);
-    if (!res){
+    if (!tree->insert(artistID, numOfSongs)){
         return FAILURE;
     }
 
-    SongCountNode* head = countList->getHead();
-
-    head->ptr = new(std::nothrow) AVLTree<AVLTree<SongNode>>;
-    if (!head->ptr){
-        return ALLOCATION_ERROR;
-    }
-
-    AVLTree<SongNode> *songsTree = new(std::nothrow) AVLTree<SongNode>;
-    if(!songsTree){
-        return ALLOCATION_ERROR;
-    }
-
-    for (int i = 0; i < numOfSongs; i++){
-        SongNode* n = new(std::nothrow) SongNode(i);
-        if (!n){
-            return ALLOCATION_ERROR;
-        }
-        songsTree->insert(n);
-        res->pointerArr[i] = n;
-    }
-
-    head->ptr->insert(songsTree);
+    countList->getHead()->ptr->insertSongTree(numOfSongs, artistID);
     total_songs += numOfSongs;
+
     return SUCCESS;
 }
 
@@ -61,17 +38,16 @@ StatusType MusicManager::RemoveDataCenter(int artistID){
     }
     ArtistNode* toDelete = tree->searchNode(artistID, this->tree->root);
     if (!toDelete){
-        return ALLOCATION_ERROR;
-    }
-    for (int i = 0; i<toDelete->numOfSongs; i++){
-        delete toDelete->pointerArr[i];
-    }
-    bool res = tree->deleteKey(*toDelete);
-    if (!res){
         return FAILURE;
     }
 
     total_songs -= toDelete->numOfSongs;
+
+    bool res = tree->deleteKey(artistID);
+    if (!res){
+        return FAILURE;
+    }
+
     return SUCCESS;
 }
 
@@ -134,13 +110,27 @@ StatusType MusicManager::GetBestSongs(int numOfSongs, int* artists, int* songs){
     SongCountNode* tail = countList->getTail();
 
     //scan the avl tree of each node from tail to head until your reach songs_scanned == numOfSongs
+    while(songs_scanned < numOfSongs && tail != nullptr){
+//        tail->ptr->root->scanInorder(tail->ptr->minNode->minNode, artists, songs, 0);
+        tail->ptr->scanOuterTree(tail->ptr, artists, songs);
+        songs_scanned +=tail->ptr->numOfNodes;
+        tail = tail->prev;
+    }
     return SUCCESS;
 }
 
 
-void MusicManager::Quit(){
+void MusicManager::Quit(ArtistNode* node){
+    if(node == nullptr){
+        return;
+    }
+
+    Quit(node->left);
+    Quit(node->right);
+    delete node;
+}
+
+MusicManager::~MusicManager() {
     delete tree;
     delete countList;
-    tree = nullptr;
-    countList = nullptr;
 }
