@@ -11,6 +11,7 @@ public:
 
     SongNode() = default;
     SongNode(int key, int artistID);
+    SongNode(int key, int artistID, SongNode *p);
     SongNode(const SongNode& t, SongNode* p);
     void UpdatePtr(int *ptr);
     ~SongNode();

@@ -269,6 +269,8 @@ static errorType OnGetRecommendedSongs(void* DS, const char* const command) {
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[GETRECOMMENDEDSONGS_CMD], ReturnValToStr(res));
+        if (artists != NULL) free(artists);
+        if (songs != NULL) free(songs);
         return error_free;
     }
 

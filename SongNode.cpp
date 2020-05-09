@@ -8,6 +8,12 @@ void SongNode::UpdatePtr(int *ptr){
     song_ptr = ptr;
 }
 
+
+SongNode::SongNode(int key, int artistID, SongNode *p):key(key), song_ptr(
+        nullptr), left (nullptr), right(nullptr), parent(p), balance(0),
+        artistID(artistID){}
+
+
 SongNode::~SongNode() {
     delete song_ptr;
 //    delete left;

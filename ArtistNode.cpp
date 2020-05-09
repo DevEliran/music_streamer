@@ -1,6 +1,6 @@
 #include "ArtistNode.h"
 
-ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), key(artistID), numOfSongs(numOfSongs),
+ArtistNode::ArtistNode(int id, int numOfSongs):key(id), numOfSongs(numOfSongs),
                                                 left(nullptr), right(nullptr),
                                                 parent(nullptr), balance(0){
     songArr = new int[numOfSongs];
@@ -12,10 +12,10 @@ ArtistNode::ArtistNode(int id, int numOfSongs):artistID(id), key(artistID), numO
 }
 
 int ArtistNode::ArtistCompare(ArtistNode a, ArtistNode b){
-    if (a.artistID == b.artistID){
+    if (a.key == b.key){
         return 0;
     }
-    else if (a.artistID > b.artistID){
+    else if (a.key > b.key){
         return 1;
     }
     return -1;
@@ -27,7 +27,7 @@ ArtistNode::~ArtistNode(){
 }
 
 int ArtistNode::getArtistID(){
-    return artistID;
+    return key;
 }
 
 int ArtistNode::getSongArrByIndex(int i){
@@ -38,7 +38,7 @@ SongNode* ArtistNode::getPointerArrByIndex(int i){
     return pointerArr[i];
 }
 
-ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),key(artistID), numOfSongs(a.numOfSongs),
+ArtistNode::ArtistNode(const ArtistNode& a):key(a.key), numOfSongs(a.numOfSongs),
     left(a.left), right(a.right), parent(a.parent), balance(a.balance){
     songArr = new int[numOfSongs];
     pointerArr = new SongNode*[numOfSongs];
@@ -48,13 +48,13 @@ ArtistNode::ArtistNode(const ArtistNode& a):artistID(a.artistID),key(artistID), 
     }
 }
 
-ArtistNode::ArtistNode(const ArtistNode& t, ArtistNode* p) :artistID(t.artistID),
-                                    key(artistID), numOfSongs(t.numOfSongs), left(nullptr),
-                                    right(nullptr), parent(p), balance(t.balance){
+ArtistNode::ArtistNode(int id, int numOfSongs, ArtistNode* p) :key(id),
+                                        numOfSongs(numOfSongs), left(nullptr),
+                                    right(nullptr), parent(p), balance(0){
     songArr = new int[numOfSongs];
     pointerArr = new SongNode*[numOfSongs];
     for (int i = 0; i<numOfSongs;i++){
-        songArr[i] = t.songArr[i];
-        pointerArr[i] = t.pointerArr[i];
+        songArr[i] = 0;
+        pointerArr[i] = nullptr;
     }
 }

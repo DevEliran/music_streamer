@@ -5,7 +5,7 @@
 
 class ArtistNode{
 public:
-    int artistID;
+//    int artistID;
     int key;
     int numOfSongs;
     ArtistNode *left, *right, *parent;
@@ -15,7 +15,7 @@ public:
 
     ArtistNode(int id, int numOfSongs);
 
-    ArtistNode(const ArtistNode& t, ArtistNode* p);
+    ArtistNode(int id, int numOfSongs, ArtistNode* p);
 
     ArtistNode(const ArtistNode& a);
 

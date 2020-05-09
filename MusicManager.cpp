@@ -23,8 +23,8 @@ StatusType MusicManager::AddDataCenter(int artistID, int numOfSongs){
     if (!tree->insert(artistID, numOfSongs)){
         return FAILURE;
     }
-
-    countList->getHead()->ptr->insertSongTree(numOfSongs, artistID);
+    ArtistNode* a = tree->searchNode(artistID, tree->root);
+    countList->getHead()->ptr->insertSongTree(numOfSongs, artistID, a);
     total_songs += numOfSongs;
 
     return SUCCESS;
@@ -39,6 +39,10 @@ StatusType MusicManager::RemoveDataCenter(int artistID){
     ArtistNode* toDelete = tree->searchNode(artistID, this->tree->root);
     if (!toDelete){
         return FAILURE;
+    }
+
+    for(int i = 0; i < toDelete->numOfSongs; i++){
+        delete toDelete->pointerArr[i];
     }
 
     total_songs -= toDelete->numOfSongs;
@@ -67,9 +71,29 @@ StatusType MusicManager::IncrementSong(int artistID, int songID){
         return INVALID_INPUT;
     }
 
+    int numOfStreams = artist->songArr[songID];
     artist->songArr[songID] ++;
 
     //Find the proper node in the list of avltree and move it to the next node of the list
+//    SongNode* song = artist->pointerArr[songID];
+    SongCountNode* currNode = countList->searchNode(numOfStreams);
+    SongCountNode* nextNode = countList->searchNode(numOfStreams + 1);
+
+    if (!nextNode){
+        countList->push(new SongCountNode(numOfStreams + 1));
+        nextNode = countList->searchNode(numOfStreams + 1);
+    }
+
+    AVLTree<SongNode> *subTree = nextNode->ptr->searchNode(artistID, nextNode->ptr->root);
+    AVLTree<SongNode> *prevSubTree = currNode->ptr->searchNode(artistID, currNode->ptr->root);
+
+    if(!subTree){
+        nextNode->ptr->insertSongTree(1, artistID, artist);
+        subTree = nextNode->ptr->searchNode(artistID, nextNode->ptr->root);
+    }
+
+    subTree->insert(songID, artistID, true);
+    prevSubTree->deleteKey(songID);
     return SUCCESS;
 }
 

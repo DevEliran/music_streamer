@@ -14,6 +14,7 @@ CMakeFiles/music_streamer.dir/MusicManager.cpp.obj: ../SongCountNode.h
 CMakeFiles/music_streamer.dir/MusicManager.cpp.obj: ../SongNode.h
 CMakeFiles/music_streamer.dir/MusicManager.cpp.obj: ../library1.h
 
+CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: ../ArtistNode.h
 CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: ../AvlTree.h
 CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: ../SongCountNode.cpp
 CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj: ../SongCountNode.h

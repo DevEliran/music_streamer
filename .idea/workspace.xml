@@ -14,22 +14,27 @@
     <list default="true" id="d03cb440-539d-42af-88b4-423ca9ffbfe7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ArtistNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArtistNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtistNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/ArtistNode.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AvlTree.h" beforeDir="false" afterPath="$PROJECT_DIR$/AvlTree.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DoublyLL.h" beforeDir="false" afterPath="$PROJECT_DIR$/DoublyLL.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MusicManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/MusicManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SongCountNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SongCountNode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SongNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SongNode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SongNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/SongNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avlTree_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/avlTree_test.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/ArtistNode.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/MusicManager.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/MusicManager.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongCountNode.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongNode.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/SongNode.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/library1.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/library1.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/music_streamer.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/music_streamer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/music_streamer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587828293929</updated>
-      <workItem from="1587828295188" duration="87911000" />
+      <workItem from="1587828295188" duration="111588000" />
     </task>
     <servers />
   </component>
@@ -115,6 +120,36 @@
           <line>116</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/avlTree_test.cpp</url>
+          <line>38</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/avlTree_test.cpp</url>
+          <line>39</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/avlTree_test.cpp</url>
+          <line>40</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MusicManager.cpp</url>
+          <line>86</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MusicManager.cpp</url>
+          <line>92</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MusicManager.cpp</url>
+          <line>87</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -124,6 +159,11 @@
         <watch expression="this" />
         <watch expression="artist" />
         <watch expression="t" />
+        <watch expression="this-&gt;countList" />
+        <watch expression="this" />
+        <watch expression="Tree-&gt;root" />
+        <watch expression="nextNode" />
+        <watch expression="prevSubTree" />
       </configuration>
     </watches-manager>
   </component>

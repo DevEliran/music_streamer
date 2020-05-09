@@ -25,6 +25,7 @@ public:
     void printList();
     void printListBackwards();
     ~DoublyLL(void);
+    SongCountNode* searchNode(int value);
 };
 
 template <class T>
@@ -185,4 +186,16 @@ DoublyLL<T>::~DoublyLL() {
     }
 }
 
+
+template <class T>
+SongCountNode* DoublyLL<T>::searchNode(int value){
+    T* temp = this->head;
+    while(temp){
+        if (temp->value == value){
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return nullptr;
+}
 #endif //MUSIC_STREAMER_DOUBLYLL_H
