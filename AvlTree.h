@@ -24,9 +24,11 @@ public:
     bool deleteKey(int t);
     void printInorder(T* t);
     T* searchNode(int value, T* t);
-    void scanInorder(T* t, int* artists, int* songs, int iter);
-    void scanOuterTree(AVLTree<AVLTree<SongNode>>* t, int* artists, int *songs);
-    void deleteTree(T* node);
+    void scanInorder(SongNode* t, int* artists, int* songs, int iter, bool wentRight);
+    void scanOuterTree(AVLTree<SongNode> *t, int* artists, int *songs, int numOfSongs, bool wentRight);
+    void deleteTree(ArtistNode* node);
+    void deleteTree(AVLTree<SongNode> *node);
+    void deleteTree(SongNode *node);
     void printPostorder(T* t);
     SongNode* insert(int key, int numOfSongs, bool flag);
     T* searchNode(int value, T* t, bool flag);
@@ -40,6 +42,7 @@ private:
     int height(T *n);
     void setBalance(T *n);
     void clearNode(T *n);
+    void rebalance(T *n, bool flag);
 };
 
 template <class T>
@@ -64,6 +67,31 @@ void AVLTree<T>::rebalance(T *n) {
     }
     else {
         root = n;
+    }
+}
+
+template <class T>
+void AVLTree<T>::rebalance(T *n, bool flag) {
+    setBalance(n);
+
+    if (n->balance == -2) {
+        if (height(n->left->left) >= height(n->left->right))
+            n = rotate_RR(n);
+        else
+            n = rotate_LR(n);
+    }
+    else if (n->balance == 2) {
+        if (height(n->right->right) >= height(n->right->left))
+            n = rotate_LL(n);
+        else
+            n = rotate_RL(n);
+    }
+
+    if (n->parent != nullptr) {
+        rebalance(n->parent);
+    }
+    else {
+        root->root = n;
     }
 }
 
@@ -170,18 +198,40 @@ template <class T>
 AVLTree<T>::~AVLTree(void) {
     deleteTree(root);
     this->root = nullptr;
+    this->minNode = nullptr;
 }
 
 
 template <class T>
-void AVLTree<T>::deleteTree(T *node) {
+void AVLTree<T>::deleteTree(ArtistNode *node) {
     if (node == nullptr){
         return;
     }
+
     deleteTree(node->left);
     deleteTree(node->right);
     numOfNodes--;
     delete node;
+    node = nullptr;
+}
+
+
+template <class T>
+void AVLTree<T>::deleteTree(AVLTree<SongNode> *node) {
+    if (node == nullptr){
+        return;
+    }
+
+    deleteTree(node->left);
+    deleteTree(node->right);
+    numOfNodes--;
+    delete node;
+    node = nullptr;
+}
+
+template <class T>
+void AVLTree<T>::deleteTree(SongNode *node) {
+    return;
 }
 
 
@@ -229,6 +279,9 @@ bool AVLTree<T>::insert(int key, int numOfSongs) {
 
 template <class T>
 bool AVLTree<T>::deleteKey(int delKey) {
+    if(!this){
+        return false;
+    }
     if (root == nullptr)
         return false;
 
@@ -241,23 +294,28 @@ bool AVLTree<T>::deleteKey(int delKey) {
     while (child != nullptr) {
         parent = n;
         n = child;
-        child = delKey >= n->key ? n->right : n->left;
-        if (delKey == n->key)
-            delNode = n;
+        if(n && child) {
+            if (delKey >= n->key){
+                child = n->right;
+            }
+            else{
+                child = n->left;
+            }
+//            child = delKey >= n->key ? n->right : n->left;
+            if (delKey == n->key)
+                delNode = n;
+        }
     }
-    if (delNode == minNode){
+    if (delNode == minNode && delNode){
         minNode = delNode->parent;
     }
     if (delNode != nullptr) {
-//        delNode = new T(*n);
         delNode->key = n->key;
 
         child = n->left != nullptr ? n->left : n->right;
 
         if (root->key == delKey) {
             root = child;
-//            delete delNode;
-//            return true;
         }
         else {
             if (parent->left == n) {
@@ -270,10 +328,8 @@ bool AVLTree<T>::deleteKey(int delKey) {
             rebalance(parent);
         }
         this->numOfNodes--;
-//        delete delNode;
         return true;
     }
-//    delete delNode;
     return false;
 }
 
@@ -298,25 +354,41 @@ void AVLTree<T>::printPostorder(T* t)
 }
 
 template <class T>
-void AVLTree<T>::scanOuterTree(AVLTree<AVLTree<SongNode>>* t, int* artists, int *songs){
-    if (t == nullptr){
+void AVLTree<T>::scanOuterTree(AVLTree<SongNode> *t, int* artists, int *songs, int numOfSongs, bool wentRight){
+    if (t == nullptr || artists[numOfSongs - 1] != -1){
         return;
     }
-    scanOuterTree(t->left, artists, songs);
-    scanInorder(t->minNode, artists, songs, 0);
-    scanOuterTree(t->right, artists, songs);
+
+    scanInorder(t->minNode, artists, songs, numOfSongs, false);//should be minNOde
+    if(!wentRight) {
+        scanOuterTree(t->parent, artists, songs, numOfSongs, false);
+    }
+    scanOuterTree(t->right, artists, songs, numOfSongs, true);
 }
 
 template <class T>
-void AVLTree<T>::scanInorder(T* t, int* artists, int* songs, int iter)
+void AVLTree<T>::scanInorder(SongNode* t, int* artists, int* songs, int numOfSongs, bool wentRight)
 {
-    if(t == nullptr){
+    if(t == nullptr || artists[numOfSongs - 1] != -1){
         return;
     }
-    scanInorder(t->left, artists, songs, iter + 1);
-    artists[iter] = t->root->artistID;
-    songs[iter] = t->key;
-    scanInorder(t->right, artists, songs, iter + 1);
+    int free_index = -1;
+    for(int i = 0; i < numOfSongs; i++){
+        if (artists[i] == -1){
+            free_index = i;
+            break;
+        }
+    }
+    if(free_index != -1) {
+        artists[free_index] = t->artistID;
+        songs[free_index] = t->key;
+    }
+
+    if(!wentRight) {
+        scanInorder(t->parent, artists, songs, numOfSongs, false);
+    }
+    scanInorder(t->right, artists, songs, numOfSongs, true);
+
 }
 
 template <class T>
@@ -351,6 +423,9 @@ T* AVLTree<T>::searchNode(int value, T* t, bool flag){
 
 template <class T>
 bool AVLTree<T>::insertSongTree(int numOfSongs, int artistID, ArtistNode* a) {
+    if(!a){
+        return false;
+    }
     if (root == nullptr) {
         root = new T;
         minNode = root;
@@ -372,7 +447,7 @@ bool AVLTree<T>::insertSongTree(int numOfSongs, int artistID, ArtistNode* a) {
 
             parent = n;
 
-            bool goLeft = n->key > key;
+            bool goLeft = n->key > artistID;
             n = goLeft ? n->left : n->right;
 
             if (n == nullptr) {
@@ -384,6 +459,7 @@ bool AVLTree<T>::insertSongTree(int numOfSongs, int artistID, ArtistNode* a) {
                     }
                     minNode = parent->left;
                     numOfNodes++;
+                    parent->left->parent = parent;
                     rebalance(parent);
                     return true;
                 }
@@ -394,6 +470,7 @@ bool AVLTree<T>::insertSongTree(int numOfSongs, int artistID, ArtistNode* a) {
                         a->pointerArr[i] = parent->right->insert(i, artistID, true);
                     }
                     numOfNodes++;
+                    parent->right->parent = parent;
                     rebalance(parent);
                     return true;
                 }

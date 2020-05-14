@@ -5,6 +5,7 @@ SongCountNode::SongCountNode(int value):value(value), ptr(new AVLTree<AVLTree<So
                                         prev(nullptr){}
 SongCountNode::~SongCountNode() {
     delete ptr;
+    ptr = nullptr;
 }
 
 std::string SongCountNode::toString() {

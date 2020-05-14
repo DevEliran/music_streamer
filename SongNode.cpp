@@ -15,10 +15,10 @@ SongNode::SongNode(int key, int artistID, SongNode *p):key(key), song_ptr(
 
 
 SongNode::~SongNode() {
-    delete song_ptr;
-//    delete left;
-//    delete right;
-//    delete parent;
+    song_ptr = nullptr;
+    left = nullptr;
+    right = nullptr;
+    parent = nullptr;
 }
 
 SongNode::SongNode(const SongNode &t, SongNode *p):key(t.key), song_ptr(t.song_ptr),

@@ -23,7 +23,9 @@ int ArtistNode::ArtistCompare(ArtistNode a, ArtistNode b){
 
 ArtistNode::~ArtistNode(){
     delete[] songArr;
+    songArr = nullptr;
     delete[] pointerArr;
+    pointerArr = nullptr;
 }
 
 int ArtistNode::getArtistID(){

@@ -43,9 +43,12 @@ StatusType MusicManager::RemoveDataCenter(int artistID){
 
     for(int i = 0; i < toDelete->numOfSongs; i++){
         delete toDelete->pointerArr[i];
+        toDelete->pointerArr[i] = nullptr;
+
     }
 
     total_songs -= toDelete->numOfSongs;
+    toDelete = nullptr;
 
     bool res = tree->deleteKey(artistID);
     if (!res){
@@ -74,8 +77,6 @@ StatusType MusicManager::IncrementSong(int artistID, int songID){
     int numOfStreams = artist->songArr[songID];
     artist->songArr[songID] ++;
 
-    //Find the proper node in the list of avltree and move it to the next node of the list
-//    SongNode* song = artist->pointerArr[songID];
     SongCountNode* currNode = countList->searchNode(numOfStreams);
     SongCountNode* nextNode = countList->searchNode(numOfStreams + 1);
 
@@ -88,19 +89,35 @@ StatusType MusicManager::IncrementSong(int artistID, int songID){
     AVLTree<SongNode> *prevSubTree = currNode->ptr->searchNode(artistID, currNode->ptr->root);
 
     if(!subTree){
-        nextNode->ptr->insertSongTree(1, artistID, artist);
+        nextNode->ptr->insertSongTree(0, artistID, artist);
         subTree = nextNode->ptr->searchNode(artistID, nextNode->ptr->root);
     }
 
     subTree->insert(songID, artistID, true);
     prevSubTree->deleteKey(songID);
+
+    if(prevSubTree) {
+        if (prevSubTree->root == nullptr) {
+            currNode->ptr->deleteKey(prevSubTree->key);
+        }
+    }
+
+    if (currNode->ptr == nullptr){
+        SongCountNode* prev = currNode->prev;
+        SongCountNode* next = currNode->next;
+        prev->next = next;
+        next->prev = prev;
+        delete currNode;
+        currNode = nullptr;
+    }
+
     return SUCCESS;
 }
 
 
 StatusType MusicManager::GetSongPopularity(int artistID, int songID, int* streams){
 
-    if(artistID <= 0 || songID < 0){
+    if(artistID <= 0 || songID < 0 || !streams){
         return INVALID_INPUT;
     }
 
@@ -121,7 +138,7 @@ StatusType MusicManager::GetSongPopularity(int artistID, int songID, int* stream
 
 StatusType MusicManager::GetBestSongs(int numOfSongs, int* artists, int* songs){
 
-    if(numOfSongs <= 0){
+    if(numOfSongs <= 0 || !artists || !songs){
         return INVALID_INPUT;
     }
 
@@ -129,32 +146,35 @@ StatusType MusicManager::GetBestSongs(int numOfSongs, int* artists, int* songs){
         return FAILURE;
     }
 
-    int songs_scanned = 0;
 
+    for(int j = 0; j <numOfSongs; j++){
+        songs[j] = -1;
+        artists[j] = -1;
+    }
     SongCountNode* tail = countList->getTail();
 
     //scan the avl tree of each node from tail to head until your reach songs_scanned == numOfSongs
-    while(songs_scanned < numOfSongs && tail != nullptr){
-//        tail->ptr->root->scanInorder(tail->ptr->minNode->minNode, artists, songs, 0);
-        tail->ptr->scanOuterTree(tail->ptr, artists, songs);
-        songs_scanned +=tail->ptr->numOfNodes;
+    while(songs[numOfSongs-1] == -1 && tail != nullptr){
+        tail->ptr->scanOuterTree(tail->ptr->minNode, artists, songs, numOfSongs, false);//was minNOde
         tail = tail->prev;
     }
     return SUCCESS;
 }
 
 
-void MusicManager::Quit(ArtistNode* node){
-    if(node == nullptr){
-        return;
-    }
-
-    Quit(node->left);
-    Quit(node->right);
-    delete node;
-}
+//void MusicManager::Quit(ArtistNode* node){
+//    if(node == nullptr){
+//        return;
+//    }
+//
+//    Quit(node->left);
+//    Quit(node->right);
+//    delete node;
+//}
 
 MusicManager::~MusicManager() {
     delete tree;
+    tree = nullptr;
     delete countList;
+    countList = nullptr;
 }
